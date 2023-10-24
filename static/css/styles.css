@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+}
+
+/* Navigation Bar */
+.navbar {
+    padding-bottom: 4.5rem;
+}
+
+.navbar-brand {
+    /* margin-left: 25px; */
+    font-family: "Ubuntu";
+    font-size: 1.25rem;
+}
+
+.nav-item {
+    /* padding: 0 7px; */
+    font-weight: 900;
+    font-size: 0.9rem;
+}
+
+.text-gradient {
+    /* Set the background color */
+    background: #1e30f3;
+    background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
+    /* Mask the color to the text, and remove the rest  */
+    -webkit-background-clip: text;
+    /* Make the text fill color value transparent so the masked background color comes through */
+    -webkit-text-fill-color: transparent;
+}
+
+.bg-gradient-primary-to-secondary {
+    background: #1e30f3;
+    background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
+}
+
+.profile {
+    position: relative;
+    height: 75vw;
+    width: 75vw;
+    border-radius: 5vw;
+    margin-top: 5vw;
+    max-height: 40rem;
+    max-width: 40rem;
+}
+
+.profile .profile-img {
+    height: 80vw;
+    max-height: 45rem;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
