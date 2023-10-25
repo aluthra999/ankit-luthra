@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap5
 from datetime import datetime
@@ -14,19 +14,38 @@ db = SQLAlchemy(app)
 
 current_year = datetime.now().year
 
-# Define the Info table
+# Define the Skills table
 
 
-class Info(db.Model):
+class Skills(db.Model):
     id = db.Column(db.Integer, primary_key=True, unique=True, nullable=False)
     skills = db.Column(db.String(255), unique=True, nullable=False)
+
+# Define Programming Languages table
+
+
+class ProgrammingLanguages(db.Model):
+    id = db.Column(db.Integer, primary_key=True, unique=True, nullable=False)
     programming_languages = db.Column(
         db.String(255), unique=True, nullable=False)
+
+# Define Languages table
+
+
+class Languages(db.Model):
+    id = db.Column(db.Integer, primary_key=True, unique=True, nullable=False)
     languages = db.Column(db.String(255), unique=True, nullable=False)
+
+# Define Intrest table
+
+
+class Intrest(db.Model):
+    id = db.Column(db.Integer, primary_key=True, unique=True, nullable=False)
     interests = db.Column(db.String(255), unique=True, nullable=False)
 
-
 # Define the Education table
+
+
 class Education(db.Model):
     id = db.Column(db.Integer, primary_key=True, unique=True, nullable=False)
     from_date = db.Column(db.String(50), nullable=False)
@@ -61,6 +80,18 @@ class WorkExperience(db.Model):
     location = db.Column(db.String(255))
     description = db.Column(db.Text(), nullable=False)
 
+# Define Projects
+
+
+class Projects(db.Model):
+    id = db.Column(db.Integer, primary_key=True, unique=True, nullable=False)
+    project_name = db.Column(db.String(255), nullable=False, unique=True)
+    description = db.Column(db.Text(), nullable=False)
+    image_filename = db.Column(db.String(255))
+
+    def image_url(self):
+        return url_for('static', filename='images/' + self.image_filename)
+
 
 # Create the database and the table
 with app.app_context():
@@ -75,16 +106,29 @@ def home():
 @app.route("/resume")
 def resume():
     # Retrieve data from the 'Info' table
-    info_data = Info.query.all()
+    skills = Skills.query.all()
+    programming_languages = ProgrammingLanguages.query.all()
+    languages = Languages.query.all()
+    intrests = Intrest.query.all()
     education_data = Education.query.all()
     courses_data = Courses.query.all()
     work_experience_data = WorkExperience.query.all()
-    return render_template('resume.html', year=current_year, info_data=info_data, education_data=education_data, courses_data=courses_data, work_experience_data=work_experience_data)
+    return render_template('resume.html',
+                           year=current_year,
+                           skills=skills,
+                           programming_languages=programming_languages,
+                           languages=languages,
+                           intrests=intrests,
+                           education_data=education_data,
+                           courses_data=courses_data,
+                           work_experience_data=work_experience_data
+                           )
 
 
 @app.route("/projects")
 def projects():
-    return render_template('projects.html', year=current_year)
+    all_projects = Projects.query.all()
+    return render_template('projects.html', year=current_year, all_projects=all_projects)
 
 
 @app.route("/contact")

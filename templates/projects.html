@@ -1,2 +1,65 @@
 {% extends "base.html" %} {% block title %}Projects - Ankit Luthra{% endblock %}
-{% block content %} {% endblock %}
+{% block content %}
+<!-- Project Section -->
+<section class="py-5">
+  <div class="container px-5 mb-5">
+    <div class="text-center mb-5">
+      <h1 class="display-5 fw-bolder mb-0">
+        <span class="text-gradient d-inline">Projects</span>
+      </h1>
+    </div>
+    <div class="album py-5 bg-body-tertiary">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          {% for project in all_projects %}
+          <div class="col">
+            <div class="card shadow-sm">
+              <img
+                src="{{ project.image_url() }}"
+                alt="{{ project.project_name }}"
+                class="card-img-top"
+              />
+              <div class="card-body">
+                <hr />
+                <h5 class="fw-bolder project-name">
+                  {{ project.project_name }}
+                </h5>
+                <p class="card-text project-text">{{ project.description }}</p>
+                <div class="btn-group">
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary"
+                  >
+                    Live Preview
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary"
+                  >
+                    GitHub
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to action Section -->
+<section class="py-5 bg-gradient-primary-to-secondary text-white">
+  <div class="container px-5 my-5">
+    <div class="text-center">
+      <h2 class="display-4 fw-bolder mb-4">Let's build something together</h2>
+      <a
+        class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder"
+        href="contact.html"
+        >Contact me</a
+      >
+    </div>
+  </div>
+</section>
+{% endblock %}

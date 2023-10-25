@@ -10,7 +10,8 @@ body {
 }
 
 .text-gradient,
-.navbar-brand {
+.navbar-brand,
+.no-link-style:hover {
     /* Set the background color */
     background: #1e30f3;
     background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
@@ -24,6 +25,13 @@ body {
     background: #1e30f3;
     background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
 }
+
+.text-secondary {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity)) !important;
+}
+
+/* base.html start */
 
 .profile {
     position: relative;
@@ -44,14 +52,26 @@ body {
     transform: translateX(-50%);
 }
 
+#btn-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+}
+
+/* base.html end */
+
+
+/* index.html start */
+
 .header-muted {
     font-size: 1.5rem;
 }
 
-.text-secondary {
-    --bs-text-opacity: 1;
-    color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity)) !important;
-}
+/* index.html end */
+
+
+/* resume.html start */
 
 .btn-resume {
     background-color: rgba(var(--bs-secondary-rgb));
@@ -72,9 +92,24 @@ body {
     color: #212529;
 }
 
-.no-link-style:hover {
-    color: rgba(var(--bs-secondary-rgb));
+.skill-set {
+    margin: 12px 0;
 }
+
+/* resume.html end */
+
+/* projects.html start */
+.project-text {
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 150px;
+}
+
+
 
 @media only screen and (max-width: 600px) {
     .header-h1 {
