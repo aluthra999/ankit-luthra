@@ -15,62 +15,51 @@
           <!-- Download resume button-->
           <!-- Note: Set the link href target to a PDF file within your project-->
           <button class="btn btn-primary btn-resume btn-sm px-4 py-3">
-            <div class="d-inline-block bi bi-download me-2"></div>
-            Resume
+            <a
+              href="/static/Resume - Ankit Luthra.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="text-decoration: none; color: #fff"
+              ><div class="d-inline-block bi bi-download me-2"></div>
+              Resume</a
+            >
           </button>
         </div>
         <!-- Education Card 1-->
+        {% for education in education_data %}
         <div class="card shadow border-0 rounded-4 mb-5">
           <div class="card-body p-5">
             <div class="row align-items-center gx-5">
               <div class="col text-center text-lg-start mb-4 mb-lg-0">
                 <div class="bg-light p-4 rounded-4">
-                  <div class="text-secondary fw-bolder mb-2">2017 - 2019</div>
+                  <div class="text-secondary fw-bolder mb-2">
+                    {{education.from_date}} - {{education.to_date}}
+                  </div>
                   <div class="mb-2">
                     <div class="small fw-bolder">
                       <a
                         href="https://www.niagaracollege.ca/media/program/programming/#courses"
                         class="no-link-style"
-                        >Niagara College</a
+                        >{{ education.college_name }}</a
                       >
                     </div>
-                    <div class="small text-muted">Welland, ON</div>
+                    <div class="small text-muted">
+                      {{education.city}}, {{ education.province }}
+                    </div>
                   </div>
                   <div class="fst-italic">
-                    <div class="small text-muted">Bachelor of Science</div>
-                    <div class="small text-muted">Computer Programming</div>
+                    <div class="small text-muted">{{ education.degree }}</div>
+                    <div class="small text-muted">{{ education.major }}</div>
                   </div>
                 </div>
               </div>
               <div class="col-lg-8">
-                <div class="row">
-                  <p>
-                    Unique mix of business, multimedia, and software development
-                    courses.
-                  </p>
-                  <div class="col">
-                    <ul>
-                      <li>OOP</li>
-                      <li>Software development</li>
-                      <li>Database Essentials</li>
-                      <li>OS Administration</li>
-                      <li>Networking</li>
-                    </ul>
-                  </div>
-                  <div class="col">
-                    <ul>
-                      <li>RAD</li>
-                      <li>Project Development</li>
-                      <li>Client Server Web S</li>
-                      <li>Network Security</li>
-                      <li>Large Data Solutions</li>
-                    </ul>
-                  </div>
-                </div>
+                <div>{{ education.description }}</div>
               </div>
             </div>
           </div>
         </div>
+        {% endfor %}
       </section>
       <!-- Personal Development Section-->
       <section>
@@ -272,50 +261,15 @@
                 </h3>
               </div>
               <div class="row row-cols-1 row-cols-md-3 mb-4">
+                {% for info in info_data %}
                 <div class="col mb-4 mb-md-0">
                   <div
                     class="d-flex align-items-center bg-light rounded-4 p-3 h-100"
                   >
-                    SEO/SEM Marketing
+                    {{ info.skills }}
                   </div>
                 </div>
-                <div class="col mb-4 mb-md-0">
-                  <div
-                    class="d-flex align-items-center bg-light rounded-4 p-3 h-100"
-                  >
-                    Statistical Analysis
-                  </div>
-                </div>
-                <div class="col">
-                  <div
-                    class="d-flex align-items-center bg-light rounded-4 p-3 h-100"
-                  >
-                    Web Development
-                  </div>
-                </div>
-              </div>
-              <div class="row row-cols-1 row-cols-md-3">
-                <div class="col mb-4 mb-md-0">
-                  <div
-                    class="d-flex align-items-center bg-light rounded-4 p-3 h-100"
-                  >
-                    Network Security
-                  </div>
-                </div>
-                <div class="col mb-4 mb-md-0">
-                  <div
-                    class="d-flex align-items-center bg-light rounded-4 p-3 h-100"
-                  >
-                    Adobe Software Suite
-                  </div>
-                </div>
-                <div class="col">
-                  <div
-                    class="d-flex align-items-center bg-light rounded-4 p-3 h-100"
-                  >
-                    User Interface Design
-                  </div>
-                </div>
+                {% endfor %}
               </div>
             </div>
             <!-- Languages list-->
