@@ -38,6 +38,29 @@ class Education(db.Model):
     major = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String(255), nullable=False)
 
+# Defiine the Online Courses
+
+
+class Courses(db.Model):
+    id = db.Column(db.Integer, primary_key=True, unique=True, nullable=False)
+    year_completed = db.Column(db.String(50), nullable=False)
+    course_name = db.Column(db.String(255), nullable=False)
+    provider = db.Column(db.String(255), nullable=False)
+    url = db.Column(db.String())
+    description = db.Column(db.String(), nullable=False)
+
+# Define Work Experience
+
+
+class WorkExperience(db.Model):
+    id = db.Column(db.Integer, primary_key=True, unique=True, nullable=False)
+    company_name = db.Column(db.String(255), nullable=False)
+    job_title = db.Column(db.String(255), nullable=False)
+    from_date = db.Column(db.String(50), nullable=False)
+    to_date = db.Column(db.String(50), nullable=False)
+    location = db.Column(db.String(255))
+    description = db.Column(db.Text(), nullable=False)
+
 
 # Create the database and the table
 with app.app_context():
@@ -54,7 +77,9 @@ def resume():
     # Retrieve data from the 'Info' table
     info_data = Info.query.all()
     education_data = Education.query.all()
-    return render_template('resume.html', year=current_year, info_data=info_data, education_data=education_data)
+    courses_data = Courses.query.all()
+    work_experience_data = WorkExperience.query.all()
+    return render_template('resume.html', year=current_year, info_data=info_data, education_data=education_data, courses_data=courses_data, work_experience_data=work_experience_data)
 
 
 @app.route("/projects")
