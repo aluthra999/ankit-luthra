@@ -1,2 +1,386 @@
 {% extends "base.html" %} {% block title %}Resume - Ankit Luthra{% endblock %}
-{% block content %} {% endblock %}
+{% block content %}
+<div class="container resume-container px-5 my-5">
+  <div class="text-center mb-5">
+    <h1 class="display-5 fw-bolder mb-0">
+      <span class="text-gradient d-inline">Resume</span>
+    </h1>
+  </div>
+  <div class="row gx-5 justify-content-center">
+    <div class="col-lg-11 col-xl-9 col-xxl-8">
+      <!-- Education Section-->
+      <section>
+        <div class="d-flex align-items-center justify-content-between mb-4">
+          <h2 class="text-secondary fw-bolder mb-4">Education</h2>
+          <!-- Download resume button-->
+          <!-- Note: Set the link href target to a PDF file within your project-->
+          <button class="btn btn-primary btn-resume btn-sm px-4 py-3">
+            <div class="d-inline-block bi bi-download me-2"></div>
+            Resume
+          </button>
+        </div>
+        <!-- Education Card 1-->
+        <div class="card shadow border-0 rounded-4 mb-5">
+          <div class="card-body p-5">
+            <div class="row align-items-center gx-5">
+              <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                <div class="bg-light p-4 rounded-4">
+                  <div class="text-secondary fw-bolder mb-2">2017 - 2019</div>
+                  <div class="mb-2">
+                    <div class="small fw-bolder">
+                      <a
+                        href="https://www.niagaracollege.ca/media/program/programming/#courses"
+                        class="no-link-style"
+                        >Niagara College</a
+                      >
+                    </div>
+                    <div class="small text-muted">Welland, ON</div>
+                  </div>
+                  <div class="fst-italic">
+                    <div class="small text-muted">Bachelor of Science</div>
+                    <div class="small text-muted">Computer Programming</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <div class="row">
+                  <p>
+                    Unique mix of business, multimedia, and software development
+                    courses.
+                  </p>
+                  <div class="col">
+                    <ul>
+                      <li>OOP</li>
+                      <li>Software development</li>
+                      <li>Database Essentials</li>
+                      <li>OS Administration</li>
+                      <li>Networking</li>
+                    </ul>
+                  </div>
+                  <div class="col">
+                    <ul>
+                      <li>RAD</li>
+                      <li>Project Development</li>
+                      <li>Client Server Web S</li>
+                      <li>Network Security</li>
+                      <li>Large Data Solutions</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Personal Development Section-->
+      <section>
+        <div class="d-flex align-items-center justify-content-between mb-4">
+          <h2 class="text-primary fw-bolder mb-0 text-gradient">
+            Personal Development
+          </h2>
+        </div>
+        <!-- Personal Development Card 1-->
+        <div class="card shadow border-0 rounded-4 mb-5">
+          <div class="card-body p-5">
+            <div class="row align-items-center gx-5">
+              <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                <div class="bg-light p-4 rounded-4">
+                  <div class="text-primary fw-bolder mb-2 text-gradient">
+                    2023
+                  </div>
+                  <div class="small fw-bolder">Python Development Bootcamp</div>
+                  <div class="small text-muted">Udemy</div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <div class="row">
+                  <div class="col">
+                    <ul>
+                      <li>Automation</li>
+                      <li>Web Development</li>
+                      <li>Django and Flask</li>
+                      <li>Game & App Development</li>
+                    </ul>
+                  </div>
+                  <div class="col">
+                    <ul>
+                      <li>Data Science</li>
+                      <li>Machine Learning</li>
+                      <li>Testing and debugging</li>
+                      <li>
+                        Working with libraries, like Pandas, NumPy and more
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Personal Development Card 2-->
+        <div class="card shadow border-0 rounded-4 mb-5">
+          <div class="card-body p-5">
+            <div class="row align-items-center gx-5">
+              <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                <div class="bg-light p-4 rounded-4">
+                  <div class="text-primary fw-bolder mb-2 text-gradient">
+                    2023
+                  </div>
+                  <div class="small fw-bolder">
+                    Full Stack Web Development Bootcamp
+                  </div>
+                  <div class="small text-muted">Udemy</div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <div class="row">
+                  <p>
+                    Full Stack Web Development with diffrent frameworks and
+                    databases. Designing and Development.
+                  </p>
+                  <div class="col">
+                    <ul>
+                      <li>Web Development</li>
+                      <li>JavaScript</li>
+                      <li>Bootstrap</li>
+                      <li>WEB3</li>
+                    </ul>
+                  </div>
+                  <div class="col">
+                    <ul>
+                      <li>MongoDB</li>
+                      <li>Express.js</li>
+                      <li>React.js</li>
+                      <li>Node.js</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Experience Section-->
+      <section>
+        <div class="d-flex align-items-center justify-content-between mb-4">
+          <h2 class="text-primary fw-bolder mb-0">Experience</h2>
+        </div>
+        <!-- Experience Card 1-->
+        <div class="card shadow border-0 rounded-4 mb-5">
+          <div class="card-body p-5">
+            <div class="row align-items-center gx-5">
+              <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                <div class="bg-light p-4 rounded-4">
+                  <div class="text-primary fw-bolder mb-2">2022 - 2023</div>
+                  <div class="small fw-bolder">Motel General Manager</div>
+                  <div class="small text-muted">
+                    Canadas Best Value Inn & Suites
+                  </div>
+                  <div class="small text-muted">Charlottetown, PEI</div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <div>
+                  As a Motel General Manager, I oversaw day-to-day operations,
+                  including staff management, customer service, and financial
+                  responsibilities. My duties included managing personnel,
+                  ensuring guest satisfaction, optimizing revenue, and
+                  maintaining property standards. I also handled budgeting, cost
+                  control, and collaborated with various departments to enhance
+                  overall efficiency, interviewing and hiring staff, and guest
+                  experience.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Experience Card 2-->
+        <div class="card shadow border-0 rounded-4 mb-5">
+          <div class="card-body p-5">
+            <div class="row align-items-center gx-5">
+              <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                <div class="bg-light p-4 rounded-4">
+                  <div class="text-primary fw-bolder mb-2">2021 - 2022</div>
+                  <div class="small fw-bolder">Front Desk Manager</div>
+                  <div class="small text-muted">
+                    Canadas Best Value Inn & Suite
+                  </div>
+                  <div class="small text-muted">Charlottetown, PEI</div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <div>
+                  In my role as Motel Front Desk Manager, I led daily front desk
+                  operations, maintaining a strong focus on guest service. This
+                  encompassed supervising staff, check-in/check-out processes,
+                  and resolving guest issues. I managed reservations, monitored
+                  room availability, and coordinated with housekeeping and
+                  maintenance for a seamless guest experience. Additionally, I
+                  handled financial tasks, including billing, account
+                  reconciliation, and invoicing, to ensure efficient front desk
+                  operations.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Experience Card 3-->
+        <div class="card shadow border-0 rounded-4 mb-5">
+          <div class="card-body p-5">
+            <div class="row align-items-center gx-5">
+              <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                <div class="bg-light p-4 rounded-4">
+                  <div class="text-primary fw-bolder mb-2">2020 - 2022</div>
+                  <div class="small fw-bolder">Front Desk Agent</div>
+                  <div class="small text-muted">The Holman Grand Hotel</div>
+                  <div class="small text-muted">Charlottetown, PEI</div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <div>
+                  As a Hotel Front Desk Agent, my daily responsibilities
+                  included welcoming and assisting guests with
+                  check-in/check-out procedures, providing excellent customer
+                  service, and addressing guest inquiries and requests promptly.
+                  I managed reservations, room assignments, and ensured accurate
+                  billing.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Divider-->
+      <div class="pb-5"></div>
+      <!-- Skills Section-->
+      <section>
+        <!-- Skillset Card-->
+        <div class="card shadow border-0 rounded-4 mb-5">
+          <div class="card-body p-5">
+            <!-- Professional skills list-->
+            <div class="mb-5">
+              <div class="d-flex align-items-center mb-4">
+                <div
+                  class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"
+                >
+                  <i class="bi bi-tools"></i>
+                </div>
+                <h3 class="fw-bolder mb-0">
+                  <span class="text-gradient d-inline"
+                    >Professional Skills</span
+                  >
+                </h3>
+              </div>
+              <div class="row row-cols-1 row-cols-md-3 mb-4">
+                <div class="col mb-4 mb-md-0">
+                  <div
+                    class="d-flex align-items-center bg-light rounded-4 p-3 h-100"
+                  >
+                    SEO/SEM Marketing
+                  </div>
+                </div>
+                <div class="col mb-4 mb-md-0">
+                  <div
+                    class="d-flex align-items-center bg-light rounded-4 p-3 h-100"
+                  >
+                    Statistical Analysis
+                  </div>
+                </div>
+                <div class="col">
+                  <div
+                    class="d-flex align-items-center bg-light rounded-4 p-3 h-100"
+                  >
+                    Web Development
+                  </div>
+                </div>
+              </div>
+              <div class="row row-cols-1 row-cols-md-3">
+                <div class="col mb-4 mb-md-0">
+                  <div
+                    class="d-flex align-items-center bg-light rounded-4 p-3 h-100"
+                  >
+                    Network Security
+                  </div>
+                </div>
+                <div class="col mb-4 mb-md-0">
+                  <div
+                    class="d-flex align-items-center bg-light rounded-4 p-3 h-100"
+                  >
+                    Adobe Software Suite
+                  </div>
+                </div>
+                <div class="col">
+                  <div
+                    class="d-flex align-items-center bg-light rounded-4 p-3 h-100"
+                  >
+                    User Interface Design
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Languages list-->
+            <div class="mb-0">
+              <div class="d-flex align-items-center mb-4">
+                <div
+                  class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"
+                >
+                  <i class="bi bi-code-slash"></i>
+                </div>
+                <h3 class="fw-bolder mb-0">
+                  <span class="text-gradient d-inline">Languages</span>
+                </h3>
+              </div>
+              <div class="row row-cols-1 row-cols-md-3 mb-4">
+                <div class="col mb-4 mb-md-0">
+                  <div
+                    class="d-flex align-items-center bg-light rounded-4 p-3 h-100"
+                  >
+                    HTML
+                  </div>
+                </div>
+                <div class="col mb-4 mb-md-0">
+                  <div
+                    class="d-flex align-items-center bg-light rounded-4 p-3 h-100"
+                  >
+                    CSS
+                  </div>
+                </div>
+                <div class="col">
+                  <div
+                    class="d-flex align-items-center bg-light rounded-4 p-3 h-100"
+                  >
+                    JavaScript
+                  </div>
+                </div>
+              </div>
+              <div class="row row-cols-1 row-cols-md-3">
+                <div class="col mb-4 mb-md-0">
+                  <div
+                    class="d-flex align-items-center bg-light rounded-4 p-3 h-100"
+                  >
+                    Python
+                  </div>
+                </div>
+                <div class="col mb-4 mb-md-0">
+                  <div
+                    class="d-flex align-items-center bg-light rounded-4 p-3 h-100"
+                  >
+                    Ruby
+                  </div>
+                </div>
+                <div class="col">
+                  <div
+                    class="d-flex align-items-center bg-light rounded-4 p-3 h-100"
+                  >
+                    Node.js
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+{% endblock %}

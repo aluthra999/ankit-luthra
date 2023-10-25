@@ -1,28 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
 
+:root {
+    --bs-secondary-rgb: 226, 30, 128;
+}
+
 body {
     font-family: 'Ubuntu', sans-serif;
     text-align: center;
 }
 
-/* Navigation Bar */
-.navbar {
-    padding-bottom: 4.5rem;
-}
-
+.text-gradient,
 .navbar-brand {
-    /* margin-left: 25px; */
-    font-family: "Ubuntu";
-    font-size: 1.25rem;
-}
-
-.nav-item {
-    /* padding: 0 7px; */
-    font-weight: 900;
-    font-size: 0.9rem;
-}
-
-.text-gradient {
     /* Set the background color */
     background: #1e30f3;
     background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
@@ -54,4 +42,54 @@ body {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.header-muted {
+    font-size: 1.5rem;
+}
+
+.text-secondary {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity)) !important;
+}
+
+.btn-resume {
+    background-color: rgba(var(--bs-secondary-rgb));
+    border: none;
+    border-radius: 11px;
+}
+
+.feature {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    width: 3rem;
+    font-size: 1.5rem;
+}
+
+.no-link-style {
+    color: #212529;
+}
+
+.no-link-style:hover {
+    color: rgba(var(--bs-secondary-rgb));
+}
+
+@media only screen and (max-width: 600px) {
+    .header-h1 {
+        font-size: 1.7em;
+    }
+
+    .header-muted {
+        font-size: 0.9rem;
+    }
+
+    .bg-gradient-primary-to-secondary {
+        margin-left: -20px;
+    }
+
+    .btn-resume {
+        margin-left: 20px;
+    }
 }
