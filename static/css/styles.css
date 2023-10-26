@@ -107,9 +107,21 @@ body {
 .card-img-top {
     width: 100%;
     height: 150px;
+    margin-top: 15px;
 }
 
+/* projects.html end */
 
+/* contact.html start */
+form>div {
+    margin: 7px 0;
+}
+
+.form-submit {
+    width: 100%;
+}
+
+/* contact.html end */
 
 @media only screen and (max-width: 600px) {
     .header-h1 {

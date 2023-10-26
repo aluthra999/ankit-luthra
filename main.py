@@ -1,6 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap5
+from flask_wtf import FlaskForm
+from wtforms import StringField, TextAreaField, SubmitField
+from wtforms.validators import DataRequired, Email
 from datetime import datetime
 
 app = Flask(__name__)
@@ -13,6 +16,13 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # To suppress warnings
 db = SQLAlchemy(app)
 
 current_year = datetime.now().year
+
+
+class ContactForm(FlaskForm):
+    name = StringField('Name', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    message = TextAreaField('Message', validators=[DataRequired()])
+    submit = SubmitField('Submit')
 
 # Define the Skills table
 
@@ -131,9 +141,19 @@ def projects():
     return render_template('projects.html', year=current_year, all_projects=all_projects)
 
 
-@app.route("/contact")
+@app.route("/contact", methods=['GET', 'POST'])
 def contact():
-    return render_template('contact.html', year=current_year)
+    form = ContactForm()
+    if form.validate_on_submit():
+        # You can handle the form data here
+        name = form.name.data
+        email = form.email.data
+        message = form.message.data
+        # For demonstration purposes, we'll print the data
+        print(f'Name: {name}, Email: {email}, Message: {message}')
+        flash('Your message has been sent!', 'success')
+        return redirect(url_for('contact'))
+    return render_template('contact.html', year=current_year, form=form)
 
 
 if __name__ == '__main__':
