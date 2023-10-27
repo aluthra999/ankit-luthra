@@ -5,6 +5,12 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SubmitField
 from wtforms.validators import DataRequired, Email
 from datetime import datetime
+import smtplib
+from email.mime.text import MIMEText
+import os
+
+my_email = "pythonsmtpudemy@gmail.com"
+app_password = "cjrxivkavqvbtqwn"
 
 app = Flask(__name__)
 bootstrap = Bootstrap5(app)
@@ -17,12 +23,6 @@ db = SQLAlchemy(app)
 
 current_year = datetime.now().year
 
-
-class ContactForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    message = TextAreaField('Message', validators=[DataRequired()])
-    submit = SubmitField('Submit')
 
 # Define the Skills table
 
@@ -143,17 +143,30 @@ def projects():
 
 @app.route("/contact", methods=['GET', 'POST'])
 def contact():
-    form = ContactForm()
-    if form.validate_on_submit():
-        # You can handle the form data here
-        name = form.name.data
-        email = form.email.data
-        message = form.message.data
-        # For demonstration purposes, we'll print the data
-        print(f'Name: {name}, Email: {email}, Message: {message}')
-        flash('Your message has been sent!', 'success')
-        return redirect(url_for('contact'))
-    return render_template('contact.html', year=current_year, form=form)
+    name = request.form.get("name")
+    email = request.form.get("email")
+    phone = request.form.get("phone")
+    message = request.form.get("message")
+
+    if name and email and phone and message:
+        try:
+            with smtplib.SMTP("smtp.gmail.com", 587) as connection:
+                connection.starttls()
+                connection.login(user=my_email, password=app_password)
+                connection.sendmail(
+                    from_addr=my_email,
+                    to_addrs=my_email,
+                    msg=f"Subject: New message from {name} on Blog Site\n\nName: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {message}"
+                )
+            success_message = "Your message has been sent!"
+            return render_template("contact.html", success_message=success_message, year=current_year)
+        except Exception as e:
+            error_message = "There was an error sending your message. Please try again later."
+            print(f"Email sending error: {str(e)}")
+            return render_template("contact.html", error_message=error_message, year=current_year)
+    else:
+        error_message = "Please fill out all the details"
+        return render_template('contact.html', error_message=error_message, year=current_year)
 
 
 if __name__ == '__main__':

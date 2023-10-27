@@ -12,6 +12,13 @@
         Want to get in touch? Fill out the form below to send me a message and I
         will get back to you as soon as possible!
       </p>
+      <span class="text-success">
+        {% if success_message %} {{ success_message }} {% endif %}
+      </span>
+
+      <span class="text-danger">
+        {% if error_message %} {{ error_message }} {% endif %}
+      </span>
       <div class="my-5">
         <form id="contactForm" action="{{ url_for('contact') }}" method="post">
           <div class="form-floating">
