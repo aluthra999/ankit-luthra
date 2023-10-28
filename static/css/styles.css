@@ -121,6 +121,28 @@ form>div {
     width: 100%;
 }
 
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.h-250 {
+    height: 250px;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+
+    .h-md-250 {
+        height: 250px;
+    }
+}
+
 /* contact.html end */
 
 @media only screen and (max-width: 600px) {

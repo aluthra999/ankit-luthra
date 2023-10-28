@@ -87,7 +87,7 @@ class WorkExperience(db.Model):
     job_title = db.Column(db.String(255), nullable=False)
     from_date = db.Column(db.String(50), nullable=False)
     to_date = db.Column(db.String(50), nullable=False)
-    location = db.Column(db.String(255))
+    location = db.Column(db.String(255), nullable=False)
     description = db.Column(db.Text(), nullable=False)
 
 # Define Projects
@@ -98,6 +98,7 @@ class Projects(db.Model):
     project_name = db.Column(db.String(255), nullable=False, unique=True)
     description = db.Column(db.Text(), nullable=False)
     image_filename = db.Column(db.String(255))
+    project_category = db.Column(db.String(255), nullable=False)
 
     def image_url(self):
         return url_for('static', filename='images/' + self.image_filename)
@@ -167,6 +168,11 @@ def contact():
     else:
         error_message = "Please fill out all the details"
         return render_template('contact.html', error_message=error_message, year=current_year)
+
+
+@app.route("/admin")
+def admin():
+    return render_template('admin.html', year=current_year)
 
 
 if __name__ == '__main__':
