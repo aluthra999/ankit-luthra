@@ -9,8 +9,8 @@ import smtplib
 from email.mime.text import MIMEText
 import os
 
-my_email = "pythonsmtpudemy@gmail.com"
-app_password = "cjrxivkavqvbtqwn"
+my_email = os.environ.get('MY_EMAIL')
+app_password = os.environ.get('EMAIL_PASSWORD')
 
 app = Flask(__name__)
 bootstrap = Bootstrap5(app)
@@ -159,20 +159,19 @@ def contact():
                     to_addrs=my_email,
                     msg=f"Subject: New message from {name} on Blog Site\n\nName: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {message}"
                 )
-            success_message = "Your message has been sent!"
-            return render_template("contact.html", success_message=success_message, year=current_year)
+            flash("Message Sent Successfully")
+            return redirect(url_for('home'))
         except Exception as e:
-            error_message = "There was an error sending your message. Please try again later."
             print(f"Email sending error: {str(e)}")
-            return render_template("contact.html", error_message=error_message, year=current_year)
+            flash("Error, Message not sent, please try again!")
+            return render_template("contact.html", year=current_year)
     else:
-        error_message = "Please fill out all the details"
-        return render_template('contact.html', error_message=error_message, year=current_year)
+        return render_template('contact.html', year=current_year)
 
 
 @app.route("/admin")
 def admin():
-    return render_template('admin.html', year=current_year)
+    return render_template('login.html', year=current_year)
 
 
 if __name__ == '__main__':
