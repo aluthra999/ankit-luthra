@@ -59,6 +59,11 @@ body {
     display: none;
 }
 
+.resourses-modal>ul {
+    list-style: none;
+    float: left;
+}
+
 /* base.html end */
 
 
@@ -110,6 +115,16 @@ body {
     margin-top: 15px;
 }
 
+.projects {
+    margin: 5px 0;
+}
+
+.language-icons {
+    width: 30px;
+    height: 30px;
+    margin: 7px 4px;
+}
+
 /* projects.html end */
 
 /* contact.html start */
@@ -133,11 +148,6 @@ form>div {
     height: 250px;
 }
 
-html,
-body {
-    height: 100%;
-}
-
 .form-signin {
     max-width: 330px;
     padding: 1rem;
@@ -157,17 +167,6 @@ body {
     margin-bottom: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-}
-
-.language-icons {
-    width: 30px;
-    height: 30px;
-    margin: 7px 4px;
-}
-
-.resourses-modal>ul {
-    list-style: none;
-    float: left;
 }
 
 @media (min-width: 768px) {
@@ -197,9 +196,5 @@ body {
 
     .btn-resume {
         margin-left: 20px;
-    }
-
-    .projects {
-        margin: 5px 0;
     }
 }

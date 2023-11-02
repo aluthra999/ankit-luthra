@@ -100,6 +100,8 @@ class Projects(db.Model):
     image_filename = db.Column(db.String(255))
     project_category = db.Column(db.String(255), nullable=False)
     languages = db.Column(db.Text(), nullable=False)
+    live_link = db.Column(db.Text())
+    github = db.Column(db.Text())
 
     def image_url(self):
         return url_for('static', filename='images/' + self.image_filename)
@@ -115,6 +117,7 @@ def get_language_icon(language):
         'Bootstrap': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg',
         'Flask': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg',
         'Django': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain-wordmark.svg',
+        "NodeJS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg"
     }
     return language_icons.get(language)
 

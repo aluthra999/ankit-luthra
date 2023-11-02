@@ -10,7 +10,7 @@
     </div>
     <div class="row">
       {% for project in all_projects %}
-      <div class="col projects">
+      <div class="col-md-6 projects">
         <div class="h-100 p-5 bg-body-tertiary border rounded-3">
           <h2>{{ project.project_name }}</h2>
           {% for language in project.languages.split(', ') %}
@@ -23,8 +23,22 @@
           </span>
           {% endfor %}
           <p>{{ project.description }}</p>
-          <button class="btn btn-outline-secondary" type="button">
-            Live Preview
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            style="display: {% if not project.live_link %}none{% else %}inline{% endif %}"
+          >
+            <a href="{{ project.live_link }}" class="text-dark">Live Preview</a>
+          </button>
+
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            style="display: {% if not project.github %}none{% else %}inline{% endif %}"
+          >
+            <a href="{{ project.github }}"
+              ><i class="bi bi-github" style="color: #000"></i
+            ></a>
           </button>
         </div>
       </div>
