@@ -98,6 +98,64 @@
             <span class="mx-1">·</span>
             <a class="small" href="#!">Terms</a>
             <span class="mx-1">·</span>
+            <a
+              class="small"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              >Resourses</a
+            >
+            <!--Resourses Modal -->
+            <div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                      Resourses
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body resourses-modal">
+                    <ul>
+                      {% for resourse in resourses %}
+                      <li>
+                        <b>{{ resourse.resourse }}</b>:
+                        <a
+                          href="{{ resourse.link}}"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          data-bs-toggle="tooltip"
+                          data-bs-title="Tooptip"
+                          ><i>{{ resourse.resourse_provider }}</i></a
+                        >
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span class="mx-1">·</span>
             <a class="small" href="{{url_for('contact')}}">Contact</a>
           </div>
         </div>

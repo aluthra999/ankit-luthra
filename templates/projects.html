@@ -2,49 +2,34 @@
 {% block content %}
 <!-- Project Section -->
 <section class="py-5">
-  <div class="container px-5 mb-5">
+  <div class="container py-4">
     <div class="text-center mb-5">
       <h1 class="display-5 fw-bolder mb-0">
         <span class="text-gradient d-inline">Projects</span>
       </h1>
     </div>
-    <div class="album py-5 bg-body-tertiary">
-      <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          {% for project in all_projects %}
-          <div class="col">
-            <div class="card shadow-sm">
-              <img
-                src="{{ project.image_url() }}"
-                alt="{{ project.project_name }}"
-                class="card-img-top"
-              />
-              <div class="card-body">
-                <hr />
-                <h5 class="fw-bolder project-name">
-                  {{ project.project_name }}
-                </h5>
-                <p class="card-text project-text">{{ project.description }}</p>
-                <div class="btn-group">
-                  <button
-                    type="button"
-                    class="btn btn-sm btn-outline-secondary"
-                  >
-                    Live Preview
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-sm btn-outline-secondary"
-                  >
-                    GitHub
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div class="row">
+      {% for project in all_projects %}
+      <div class="col projects">
+        <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+          <h2>{{ project.project_name }}</h2>
+          {% for language in project.languages.split(', ') %}
+          <span class="language-icons">
+            <img
+              src="{{ get_language_icon(language) }}"
+              alt="{{ language }}"
+              class="language-icons"
+            />
+          </span>
           {% endfor %}
+          <p>{{ project.description }}</p>
+          <button class="btn btn-outline-secondary" type="button">
+            Live Preview
+          </button>
         </div>
       </div>
+      <br />
+      {% endfor %}
     </div>
   </div>
 </section>

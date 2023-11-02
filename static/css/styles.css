@@ -159,6 +159,17 @@ body {
     border-top-right-radius: 0;
 }
 
+.language-icons {
+    width: 30px;
+    height: 30px;
+    margin: 7px 4px;
+}
+
+.resourses-modal>ul {
+    list-style: none;
+    float: left;
+}
+
 @media (min-width: 768px) {
     .bd-placeholder-img-lg {
         font-size: 3.5rem;
@@ -186,5 +197,9 @@ body {
 
     .btn-resume {
         margin-left: 20px;
+    }
+
+    .projects {
+        margin: 5px 0;
     }
 }

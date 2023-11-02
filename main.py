@@ -99,9 +99,34 @@ class Projects(db.Model):
     description = db.Column(db.Text(), nullable=False)
     image_filename = db.Column(db.String(255))
     project_category = db.Column(db.String(255), nullable=False)
+    languages = db.Column(db.Text(), nullable=False)
 
     def image_url(self):
         return url_for('static', filename='images/' + self.image_filename)
+
+
+def get_language_icon(language):
+    language_icons = {
+        'HTML': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg',
+        'CSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg',
+        'JS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg',
+        'Python': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+        'SQLA': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-original.svg',
+        'Bootstrap': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg',
+        'Flask': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg',
+        'Django': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain-wordmark.svg',
+    }
+    return language_icons.get(language)
+
+
+# Define Resourses table
+
+class Resourses(db.Model):
+    id = db.Column(db.Integer, primary_key=True, unique=True, nullable=False)
+    resourse = db.Column(db.String(255), nullable=False)
+    resourse_provider = db.Column(db.String(255), nullable=False)
+    description = db.Column(db.Text())
+    link = db.Column(db.String(255))
 
 
 # Create the database and the table
@@ -111,7 +136,8 @@ with app.app_context():
 
 @app.route("/")
 def home():
-    return render_template('index.html', year=current_year)
+    resourses = Resourses.query.all()
+    return render_template('index.html', year=current_year, resourses=resourses)
 
 
 @app.route("/resume")
@@ -124,6 +150,7 @@ def resume():
     education_data = Education.query.all()
     courses_data = Courses.query.all()
     work_experience_data = WorkExperience.query.all()
+    resourses = Resourses.query.all()
     return render_template('resume.html',
                            year=current_year,
                            skills=skills,
@@ -132,18 +159,21 @@ def resume():
                            intrests=intrests,
                            education_data=education_data,
                            courses_data=courses_data,
-                           work_experience_data=work_experience_data
+                           work_experience_data=work_experience_data,
+                           resourses=resourses
                            )
 
 
 @app.route("/projects")
 def projects():
     all_projects = Projects.query.all()
-    return render_template('projects.html', year=current_year, all_projects=all_projects)
+    resourses = Resourses.query.all()
+    return render_template('projects.html', year=current_year, all_projects=all_projects, get_language_icon=get_language_icon, resourses=resourses)
 
 
 @app.route("/contact", methods=['GET', 'POST'])
 def contact():
+    resourses = Resourses.query.all()
     name = request.form.get("name")
     email = request.form.get("email")
     phone = request.form.get("phone")
@@ -164,14 +194,15 @@ def contact():
         except Exception as e:
             print(f"Email sending error: {str(e)}")
             flash("Error, Message not sent, please try again!")
-            return render_template("contact.html", year=current_year)
+            return render_template("contact.html", year=current_year, resourses=resourses)
     else:
-        return render_template('contact.html', year=current_year)
+        return render_template('contact.html', year=current_year, resourses=resourses)
 
 
 @app.route("/admin")
 def admin():
-    return render_template('login.html', year=current_year)
+    resourses = Resourses.query.all()
+    return render_template('login.html', year=current_year, resourses=resourses)
 
 
 if __name__ == '__main__':
