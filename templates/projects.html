@@ -26,7 +26,13 @@
           <button
             class="btn btn-outline-secondary"
             type="button"
-            style="display: {% if not project.live_link %}none{% else %}inline{% endif %}"
+            {%
+            if
+            not
+            project.live_link
+            %}disabled{%
+            endif
+            %}
           >
             <a href="{{ project.live_link }}" class="text-dark">Live Preview</a>
           </button>
@@ -34,7 +40,13 @@
           <button
             class="btn btn-outline-secondary"
             type="button"
-            style="display: {% if not project.github %}none{% else %}inline{% endif %}"
+            {%
+            if
+            not
+            project.github
+            %}disabled{%
+            endif
+            %}
           >
             <a href="{{ project.github }}"
               ><i class="bi bi-github" style="color: #000"></i

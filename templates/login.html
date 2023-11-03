@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block title %}Login - Ankit Luthra{% endblock %} {%
 block content %}
 <main class="form-signin w-100 m-auto">
-  <form class="login-form">
+  <!-- <form class="login-form" method="POST" action="">
     <img
       class="mb-4 login-img"
       src="/static/images/login.png"
@@ -19,7 +19,7 @@ block content %}
         id="floatingInput"
         placeholder="name@example.com"
       />
-      <label for="floatingInput">Email address</label>
+      <label for="floatingInput">Username</label>
     </div>
     <div class="form-floating">
       <input
@@ -43,6 +43,21 @@ block content %}
       </label>
     </div>
     <button class="btn btn-primary w-100 py-2" type="submit">Log In</button>
+  </form> -->
+  <form method="POST" action="">
+    <img
+      class="mb-4 login-img"
+      src="/static/images/login.png"
+      alt=""
+      width="150"
+      height="150"
+      style="border-radius: 50%"
+    />
+    <h1 class="h3 mb-3 fw-normal">Admin Login</h1>
+    {{ form.hidden_tag() }}
+    <div>{{ form.username.label }} {{ form.username(size=32) }}</div>
+    <div>{{ form.password.label }} {{ form.password(size=32) }}</div>
+    <div>{{ form.submit }}</div>
   </form>
 </main>
 {% endblock %}

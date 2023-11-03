@@ -181,6 +181,18 @@ form>div {
 
 /* contact.html end */
 
+/* Admin page start */
+.admin-sidebar-ul,
+.admin-sidebar-ul a {
+    color: #fff;
+}
+
+.admin-sidebar-ul>li>button {
+    color: #e21e80;
+}
+
+/* Admin page end */
+
 @media only screen and (max-width: 600px) {
     .header-h1 {
         font-size: 1.7em;
