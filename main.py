@@ -7,6 +7,7 @@ from wtforms.validators import DataRequired, Email
 from datetime import datetime
 import smtplib
 from email.mime.text import MIMEText
+import random
 import os
 
 my_email = os.environ.get('MY_EMAIL')
@@ -206,6 +207,11 @@ def contact():
 def admin():
     resourses = Resourses.query.all()
     return render_template('login.html', year=current_year, resourses=resourses)
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("404.html"), 404
 
 
 if __name__ == '__main__':

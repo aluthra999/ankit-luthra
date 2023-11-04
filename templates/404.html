@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% block title %}404 - Page Not Found{% endblock %}
+{%block content %}
+<div class="container py-4">
+  <div class="text-center mb-5">
+    <h1 class="display-5 fw-bolder mb-0">
+      <span class="text-gradient d-inline">Page under construction</span>
+    </h1>
+  </div>
+  <div>
+    <img
+      src="/static/images/404-panda.png"
+      alt=""
+      style="width: 25%; height: 25%; margin-bottom: 20px"
+    />
+    <p>
+      Our panda is working on this page <code>(hopefully)</code>. Please let our
+      panda do the best.
+    </p>
+    <p>In the meantime see our other working pages!</p>
+  </div>
+  <div>
+    <p>Let's see where it will take you 👇</p>
+    <button type="button" class="btn btn-dark" style="width: 25%">
+      <a
+        href="{{url_for('home')}}"
+        class="link-light"
+        style="text-decoration: none"
+        >Hope this works 🤞</a
+      >
+    </button>
+  </div>
+</div>
+{% endblock %}
