@@ -8,6 +8,72 @@
         <span class="text-gradient d-inline">Projects</span>
       </h1>
     </div>
+
+    <header class="p-3 mb-3">
+      <div class="container">
+        <div
+          class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-end"
+        >
+          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+            <input
+              type="search"
+              class="form-control"
+              placeholder="Search..."
+              aria-label="Search"
+            />
+          </form>
+
+          <div class="dropdown text-end">
+            <a
+              id="filter-dropdown"
+              href="#"
+              class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Filter
+            </a>
+            <ul class="dropdown-menu text-small">
+              <li>
+                <a class="dropdown-item" href="#">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input filter-radio"
+                      type="radio"
+                      name="exampleRadios"
+                      id="exampleRadios1"
+                      value="all"
+                      checked
+                    />
+                    <label class="form-check-label" for="exampleRadios1">
+                      All
+                    </label>
+                  </div>
+                </a>
+              </li>
+              {% for abbreviation in project_type_abbreviations %}
+              <li>
+                <a class="dropdown-item" href="#">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input filter-radio"
+                      type="radio"
+                      name="exampleRadios"
+                      id="{{ abbreviation }}"
+                      value="{{ abbreviation }}"
+                    />
+                    <label class="form-check-label" for="{{ abbreviation }}">
+                      {{ abbreviation }}
+                    </label>
+                  </div>
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
     <div class="row">
       {% for project in all_projects %}
       <div class="col-md-6 projects">
@@ -34,7 +100,9 @@
             endif
             %}
           >
-            <a href="{{ project.live_link }}" class="text-dark">Live Preview</a>
+            <a href="{{ project.live_link }}" class="text-dark" target="_blank"
+              >Live Preview</a
+            >
           </button>
 
           <button
@@ -48,8 +116,8 @@
             endif
             %}
           >
-            <a href="{{ project.github }}"
-              ><i class="bi bi-github" style="color: #000"></i
+            <a href="{{ project.github }}" target="_blank"
+              ><i class="bi bi-code-slash" style="color: #000"></i
             ></a>
           </button>
         </div>

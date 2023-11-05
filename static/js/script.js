@@ -1,3 +1,65 @@
+const placeholderWords = [
+  "how to get a website for my business?",
+  "how to promote my business online?",
+  "Do I really need a developer to make a website for me?",
+  "what is an online store?",
+  "how to sell my art worldwide?",
+  "does making a e-commerce website for my business worth spending money?",
+  "average income of an online store?",
+  "why my brand is not growing?",
+  "how to reach more people online to buy my stuff?",
+  "what is SEO?",
+  "Is getting a website expensive?",
+];
+let placeholderIndex = 0;
+let placeholderLetterIndex = 0;
+let currentPlaceholder = "";
+let isDeletingPlaceholder = false;
+
+const inputField = document.getElementById("inputField");
+
+function typePlaceholder() {
+  const speed = Math.random() * (100 - 50) + 50;
+
+  if (isDeletingPlaceholder) {
+    currentPlaceholder = placeholderWords[placeholderIndex].substring(
+      0,
+      placeholderLetterIndex - 1
+    );
+    placeholderLetterIndex--;
+  } else {
+    currentPlaceholder = placeholderWords[placeholderIndex].substring(
+      0,
+      placeholderLetterIndex + 1
+    );
+    placeholderLetterIndex++;
+  }
+
+  inputField.setAttribute("placeholder", currentPlaceholder);
+
+  if (
+    !isDeletingPlaceholder &&
+    placeholderLetterIndex === placeholderWords[placeholderIndex].length
+  ) {
+    isDeletingPlaceholder = true;
+    setTimeout(() => {
+      typePlaceholder();
+    }, 2000);
+  } else if (isDeletingPlaceholder && placeholderLetterIndex === 0) {
+    isDeletingPlaceholder = false;
+    placeholderIndex = (placeholderIndex + 1) % placeholderWords.length;
+    setTimeout(() => {
+      typePlaceholder();
+    }, 500);
+  } else {
+    setTimeout(() => {
+      typePlaceholder();
+    }, speed);
+  }
+}
+
+typePlaceholder();
+
 const words = ["fast", "potential", "audience"];
 let index = 0;
 let letterIndex = 0;
@@ -124,3 +186,14 @@ function backToTop() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const filterDropdown = document.getElementById("filter-dropdown");
+  const filterRadios = document.querySelectorAll(".filter-radio");
+
+  filterRadios.forEach(function (radio) {
+    radio.addEventListener("click", function () {
+      filterDropdown.textContent = this.nextSibling.textContent;
+    });
+  });
+});

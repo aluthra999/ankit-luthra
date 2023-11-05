@@ -118,7 +118,10 @@ def get_language_icon(language):
         'Bootstrap': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg',
         'Flask': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg',
         'Django': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain-wordmark.svg',
-        "NodeJS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg"
+        "NodeJS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg",
+        "Swift": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg",
+        "Android": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-plain-wordmark.svg",
+        "Atom": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/atom/atom-original.svg"
     }
     return language_icons.get(language)
 
@@ -172,7 +175,17 @@ def resume():
 def projects():
     all_projects = Projects.query.all()
     resourses = Resourses.query.all()
-    return render_template('projects.html', year=current_year, all_projects=all_projects, get_language_icon=get_language_icon, resourses=resourses)
+    project_type_abbreviations = [
+        "fullstack", "frontend", "backend", "desktop", "android", "ios", "python"
+    ]
+    return render_template(
+        'projects.html',
+        year=current_year,
+        all_projects=all_projects,
+        get_language_icon=get_language_icon,
+        resourses=resourses,
+        project_type_abbreviations=project_type_abbreviations
+    )
 
 
 @app.route("/contact", methods=['GET', 'POST'])

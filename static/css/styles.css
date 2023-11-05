@@ -73,6 +73,22 @@ body {
     font-size: 1.5rem;
 }
 
+.profile>form {
+    margin: auto;
+    width: 75%;
+}
+
+.index-form {
+    background: none;
+    margin-top: 10px;
+}
+
+.google {
+    width: 30%;
+    margin: 0;
+    padding: 0;
+}
+
 /* index.html end */
 
 
@@ -134,6 +150,10 @@ form>div {
 
 .form-submit {
     width: 100%;
+}
+
+.google-search {
+    margin: 27px auto;
 }
 
 .bd-placeholder-img {
